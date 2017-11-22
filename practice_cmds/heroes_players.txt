@@ -1,0 +1,21 @@
+hero = %AbaModel.Hero{name: "hello hero hero"}
+hero = AbaModel.Repo.insert! hero
+
+---
+
+player = %AbaModel.Player{battletag: "tigger"}
+player = AbaModel.Repo.insert! player
+
+---
+
+hero = AbaModel.Repo.get_by!(AbaModel.Hero, name: "hello hero hero")
+player = AbaModel.Repo.get_by!(AbaModel.Player, battletag: "tigger")
+
+player = AbaModel.Repo.preload player, :hero
+
+player_changeset = Ecto.Changeset.change(player)
+player_with_hero = Ecto.Changeset.put_assoc(player_changeset, :hero, [hero])
+player = AbaModel.Repo.update!(player_with_hero)
+
+---
+

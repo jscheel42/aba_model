@@ -1,0 +1,27 @@
+alias AbaModel.{Repo, Hero, Ability, Talent}
+
+hero = %Hero{name: "John Doe"}
+hero = Repo.insert!(hero)
+
+ability = Ecto.build_assoc(hero, :abilities, %{name: "ability1"})
+Repo.insert!(ability)
+
+ability = Ecto.build_assoc(hero, :abilities, %{name: "ability2"})
+Repo.insert!(ability)
+
+Repo.get(Hero, hero.id) |> Repo.preload(:abilities)
+
+
+------------------
+
+alias AbaModel.{Repo, Hero, Ability, Talent}
+
+hero = AbaModel.Repo.get_by(Hero, name: "John Doe")
+
+talent = Ecto.build_assoc(hero, :talents, %{name: "talent1"})
+Repo.insert!(talent)
+
+talent = Ecto.build_assoc(hero, :talents, %{name: "talent2"})
+Repo.insert!(talent)
+
+Repo.get(Hero, hero.id) |> Repo.preload([:abilities, :talents])

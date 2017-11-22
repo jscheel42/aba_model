@@ -1,0 +1,24 @@
+hero = %AbaModel.Hero{name: "hello hero"}
+hero = AbaModel.Repo.insert! hero
+
+hero = AbaModel.Repo.get_by!(AbaModel.Hero, name: "hello hero")
+
+---
+
+replay = %AbaModel.Replay{filename: "tits"}
+replay = AbaModel.Repo.insert! replay
+
+replay = AbaModel.Repo.get_by!(AbaModel.Replay, filename: "tits")
+replay = AbaModel.Repo.preload replay, [:bans]
+replay = AbaModel.Repo.preload replay, [:bans, :players]
+
+---
+
+replay_changeset = Ecto.Changeset.change(replay)
+replay_with_bans = Ecto.Changeset.put_assoc(replay_changeset, :bans, [hero])
+replay = AbaModel.Repo.update!(replay_with_bans)
+
+
+player_changeset = Ecto.Changeset.change(player)
+player_with_talents = Ecto.Changeset.put_assoc(player_changeset, :talents, [talent1, talent2])
+player = AbaModel.Repo.update!(player_with_talents)

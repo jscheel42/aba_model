@@ -1,0 +1,27 @@
+clickbait_tag = Repo.insert! %Tag{name: "clickbait"}
+misc_tag = Repo.insert! %Tag{name: "misc"}
+ecto_tag = Repo.insert! %Tag{name: "ecto"}
+
+post = %Post{header: "Clickbait header", body: "No real content"}
+post = Repo.insert!(post)
+
+post_changeset = Ecto.Changeset.change(post)
+post_with_tags = Ecto.Changeset.put_assoc(post_changeset, :tags, [clickbait_tag, misc_tag])
+post = Repo.update!(post_with_tags)
+
+
+
+
+player = %AbaModel.Player{blizz_id: "123"}
+player = AbaModel.Repo.insert!(player)
+
+talent1 = AbaModel.Repo.get_by!(AbaModel.Talent, name: "talent1")
+talent2 = AbaModel.Repo.get_by!(AbaModel.Talent, name: "talent2")
+
+
+player = AbaModel.Repo.get_by!(AbaModel.Player, blizz_id: "123")
+player = AbaModel.Repo.preload player, :talents
+player_changeset = Ecto.Changeset.change(player)
+player_with_talents = Ecto.Changeset.put_assoc(player_changeset, :talents, [talent1, talent2])
+player = AbaModel.Repo.update!(player_with_talents)
+
