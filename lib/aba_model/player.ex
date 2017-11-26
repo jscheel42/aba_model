@@ -3,17 +3,17 @@ defmodule AbaModel.Player do
   import Ecto.Changeset
   
   @params_cast [:battletag, :blizz_id, :hero_level, :party, :silenced, :team, :winner, :score_level, :score_kills, :score_assists, :score_takedowns, :score_deaths, :score_highest_kill_streak, :score_hero_damage, :score_siege_damage, :score_structure_damage, :score_minion_damage, :score_creep_damage, :score_summon_damage, :score_time_cc_enemy_heroes, :score_healing, :score_self_healing, :score_damage_taken, :score_experience_contribution, :score_town_kills, :score_time_spent_dead, :score_merc_camp_captures, :score_watch_tower_captures, :score_meta_experience]
-  @params_req [:battletag, :blizz_id, :hero_level, :party, :silenced, :team, :winner, :score_level, :score_kills, :score_assists, :score_takedowns, :score_deaths, :score_highest_kill_streak, :score_hero_damage, :score_siege_damage, :score_structure_damage, :score_minion_damage, :score_creep_damage, :score_summon_damage, :score_time_cc_enemy_heroes, :score_healing, :score_self_healing, :score_damage_taken, :score_experience_contribution, :score_town_kills, :score_time_spent_dead, :score_merc_camp_captures, :score_watch_tower_captures, :score_meta_experience]
+  @params_req [:battletag, :blizz_id, :hero_level, :party, :silenced, :team, :winner, :score_level, :score_kills, :score_assists, :score_takedowns, :score_deaths, :score_highest_kill_streak, :score_hero_damage, :score_siege_damage, :score_structure_damage, :score_minion_damage, :score_creep_damage, :score_summon_damage, :score_time_cc_enemy_heroes, :score_self_healing, :score_experience_contribution, :score_town_kills, :score_time_spent_dead, :score_merc_camp_captures, :score_watch_tower_captures, :score_meta_experience]
 
   schema "players" do
     field :battletag, :string
-    field :blizz_id, :string
+    field :blizz_id, :integer
     # field :hero, :string
-    field :hero_level, :string
-    field :party, :string
-    field :silenced, :string
-    field :team, :string
-    field :winner, :string
+    field :hero_level, :integer
+    field :party, :integer
+    field :silenced, :boolean
+    field :team, :integer
+    field :winner, :boolean
 
     field :score_level, :integer
     field :score_kills, :integer

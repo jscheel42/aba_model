@@ -35,12 +35,12 @@ defmodule AbaModel.Repo.Migrations.Init do
 
     create table(:players) do
       add :battletag, :string
-      add :blizz_id, :string
-      add :hero_level, :string
-      add :party, :string
-      add :silenced, :string
-      add :team, :string
-      add :winner, :string
+      add :blizz_id, :integer
+      add :hero_level, :integer
+      add :party, :integer
+      add :silenced, :boolean
+      add :team, :integer
+      add :winner, :boolean
 
       add :score_level, :integer
       add :score_kills, :integer
