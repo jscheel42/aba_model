@@ -8,9 +8,9 @@ defmodule AbaModel.Repo.Migrations.Init do
       add :icon_url, :string 
       add :name, :string 
       add :short_name, :string 
-      add :release_date, :utc_datetime 
+      add :release_date, :string 
       add :role, :string 
-      add :translations, :string 
+      add :translations, {:array, :string}
       add :type, :string
     end
 
@@ -18,7 +18,7 @@ defmodule AbaModel.Repo.Migrations.Init do
       add :owner, :string
       add :name, :string
       add :title, :string
-      add :description, :string
+      add :description, :text
       add :icon, :string
       add :hotkey, :string
       add :cooldown, :integer
@@ -83,7 +83,7 @@ defmodule AbaModel.Repo.Migrations.Init do
     create table(:talents) do
       add :ability, :string
       add :cooldown, :integer
-      add :description, :string
+      add :description, :text
       add :icon, :string
       add :icon_url, :string
       add :level, :integer

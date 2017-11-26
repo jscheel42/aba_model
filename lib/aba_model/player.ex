@@ -1,5 +1,9 @@
 defmodule AbaModel.Player do
   use Ecto.Schema
+  import Ecto.Changeset
+  
+  @params_cast [:battletag, :blizz_id, :hero_level, :party, :silenced, :team, :winner, :score_level, :score_kills, :score_assists, :score_takedowns, :score_deaths, :score_highest_kill_streak, :score_hero_damage, :score_siege_damage, :score_structure_damage, :score_minion_damage, :score_creep_damage, :score_summon_damage, :score_time_cc_enemy_heroes, :score_healing, :score_self_healing, :score_damage_taken, :score_experience_contribution, :score_town_kills, :score_time_spent_dead, :score_merc_camp_captures, :score_watch_tower_captures, :score_meta_experience]
+  @params_req [:battletag, :blizz_id, :hero_level, :party, :silenced, :team, :winner, :score_level, :score_kills, :score_assists, :score_takedowns, :score_deaths, :score_highest_kill_streak, :score_hero_damage, :score_siege_damage, :score_structure_damage, :score_minion_damage, :score_creep_damage, :score_summon_damage, :score_time_cc_enemy_heroes, :score_healing, :score_self_healing, :score_damage_taken, :score_experience_contribution, :score_town_kills, :score_time_spent_dead, :score_merc_camp_captures, :score_watch_tower_captures, :score_meta_experience]
 
   schema "players" do
     field :battletag, :string
@@ -37,5 +41,11 @@ defmodule AbaModel.Player do
     many_to_many :hero, AbaModel.Hero, join_through: "heroes_players"
     many_to_many :replays, AbaModel.Replay, join_through: "players_replays"
     many_to_many :talents, AbaModel.Talent, join_through: "players_talents"
+  end
+
+  def changeset(map, params \\ %{}) do
+    map
+    |> cast(params, @params_cast)
+    |> validate_required(@params_req)
   end
 end
