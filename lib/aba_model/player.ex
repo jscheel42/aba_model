@@ -12,6 +12,7 @@ defmodule AbaModel.Player do
     field :hero_level, :integer
     field :party, :integer
     field :silenced, :boolean
+    field :talents, {:array, :string}
     field :team, :integer
     field :winner, :boolean
 
@@ -40,7 +41,7 @@ defmodule AbaModel.Player do
 
     many_to_many :hero, AbaModel.Hero, join_through: "heroes_players"
     many_to_many :replays, AbaModel.Replay, join_through: "players_replays"
-    many_to_many :talents, AbaModel.Talent, join_through: "players_talents"
+    # many_to_many :talents, AbaModel.Talent, join_through: "players_talents"
   end
 
   def changeset(map, params \\ %{}) do

@@ -39,6 +39,7 @@ defmodule AbaModel.Repo.Migrations.Init do
       add :hero_level, :integer
       add :party, :integer
       add :silenced, :boolean
+      add :talents, {:array, :string}
       add :team, :integer
       add :winner, :boolean
 
@@ -95,11 +96,11 @@ defmodule AbaModel.Repo.Migrations.Init do
       add :hero_id, references(:heroes)
     end
 
-    create table(:players_talents) do
-      add :player_id, references(:players)
-      add :talent_id, references(:talents)
-    end
-    create unique_index(:players_talents, [:player_id, :talent_id])
+    # create table(:players_talents) do
+    #   add :player_id, references(:players)
+    #   add :talent_id, references(:talents)
+    # end
+    # create unique_index(:players_talents, [:player_id, :talent_id])
 
     create table(:players_replays) do
       add :player_id, references(:players)
