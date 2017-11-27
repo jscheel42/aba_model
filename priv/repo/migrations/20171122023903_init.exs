@@ -39,7 +39,13 @@ defmodule AbaModel.Repo.Migrations.Init do
       add :hero_level, :integer
       add :party, :integer
       add :silenced, :boolean
-      add :talents, {:array, :string}
+      add :talent1, :string
+      add :talent4, :string
+      add :talent7, :string
+      add :talent10, :string
+      add :talent13, :string
+      add :talent16, :string
+      add :talent20, :string
       add :team, :integer
       add :winner, :boolean
 

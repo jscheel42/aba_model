@@ -12,7 +12,13 @@ defmodule AbaModel.Player do
     field :hero_level, :integer
     field :party, :integer
     field :silenced, :boolean
-    field :talents, {:array, :string}
+    field :talent1, :string
+    field :talent4, :string
+    field :talent7, :string
+    field :talent10, :string
+    field :talent13, :string
+    field :talent16, :string
+    field :talent20, :string
     field :team, :integer
     field :winner, :boolean
 
