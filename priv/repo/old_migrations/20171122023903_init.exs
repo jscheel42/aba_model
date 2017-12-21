@@ -34,6 +34,7 @@ defmodule AbaModel.Repo.Migrations.Init do
     end
 
     create table(:players) do
+      add :api_replay_id, :integer # this is 'id' in the REPLAY model at https://hotsapi.net/docs, used here to identify unique player entries         
       add :battletag, :string
       add :blizz_id, :integer
       add :hero_level, :integer
@@ -74,7 +75,7 @@ defmodule AbaModel.Repo.Migrations.Init do
     end
 
     create table(:replays) do
-      add :api_id, :integer # this is 'id' in the model at https://hotsapi.net/docs but we want to have this + default id field
+      add :api_replay_id, :integer # this is 'id' in the model at https://hotsapi.net/docs but we want to have this + default id field
       add :filename, :string
       add :fingerprint, :string
       add :game_type, :string

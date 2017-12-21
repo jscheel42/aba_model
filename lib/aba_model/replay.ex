@@ -2,11 +2,12 @@ defmodule AbaModel.Replay do
   use Ecto.Schema
   import Ecto.Changeset
   
-  @params_cast [:api_id, :filename, :fingerprint, :game_type, :game_date, :game_length, :game_map, :game_version, :region, :size, :url]
-  @params_req [:api_id, :filename, :fingerprint, :game_type, :game_date, :game_length, :game_map, :game_version, :region, :size, :url]
+  @params_cast [:api_replay_id, :filename, :fingerprint, :game_type, :game_date, :game_length, :game_map, :game_version, :region, :size, :url]
+  @params_req [:api_replay_id, :filename, :fingerprint, :game_type, :game_date, :game_length, :game_map, :game_version, :region, :size, :url]
 
   schema "replays" do
-    field :api_id, :integer # this is 'id' in the model at https://hotsapi.net/docs but we want to have this + default id field
+    field :api_replay_id, :integer # this is 'id' in the model at https://hotsapi.net/docs but we want to have this + default id field
+    # field :api_status_code, :integer
     field :filename, :string
     field :fingerprint, :string
     field :game_type, :string
