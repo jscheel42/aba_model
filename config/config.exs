@@ -49,12 +49,12 @@ config :aba_model, ecto_repos: [AbaModel.Repo]
  #    * type -> This dictates which database vendor you are using. We currently support PostgreSQL and MySQL. If no value is entered then it will default to MySQL. Do note that this is an atom and not a string
 
 
-config :plsm,
-module_name: "AbaModel",
-destination: "priv/repo/migrations/0000_init",
-server: "db01.homenet",
-port: "5432",
-database_name: "aba_test",
-username: "aba",
-password: "aba",
-type: :postgres
+# config :plsm,
+# module_name: "AbaModel",
+# destination: "lib/aba_model/",
+# server: "db01.homenet",
+# port: "5432",
+# database_name: "aba_test",
+# username: "aba",
+# password: "aba",
+# type: :postgres

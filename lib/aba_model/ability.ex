@@ -3,7 +3,7 @@ defmodule AbaModel.Ability do
   import Ecto.Changeset
 
   @params_cast [:cooldown, :description, :hotkey, :icon, :mana_cost, :name, :owner, :title, :trait]
-  @params_req [:cooldown, :description, :name, :owner, :title, :trait]
+  @params_req [:name, :trait]
   
   schema "abilities" do
     field :cooldown, :integer

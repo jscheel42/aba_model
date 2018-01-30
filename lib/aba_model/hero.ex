@@ -3,23 +3,24 @@ defmodule AbaModel.Hero do
   import Ecto.Changeset
   
   @params_cast [:attribute_id, :icon_url, :name, :short_name, :release_date, :role, :translations, :type]
-  @params_req [:attribute_id, :icon_url, :name, :short_name, :release_date, :role, :translations, :type]
+  @params_req [:name, :short_name]
 
   schema "heroes" do
     field :attribute_id, :string 
-    field :icon_url, :string 
     field :name, :string 
     field :short_name, :string 
-    field :release_date, :string 
+    field :release_date, :date 
     field :role, :string 
-    field :translations, {:array, :string}
     field :type, :string 
 
     has_many :abilities, AbaModel.Ability
-    has_many :talents, AbaModel.Talent
+    has_many :bans, AbaModel.Ban
+    has_many :players, AbaModel.Player
+    has_many :translations, AbaModel.HeroTranslation, on_delete: :delete_all
 
-    many_to_many :players, AbaModel.Player, join_through: "heroes_players"
-    many_to_many :replays, AbaModel.Replay, join_through: "bans_replays"
+    # many_to_many :players, AbaModel.Player, join_through: "heroes_players"
+    # many_to_many :replays, AbaModel.Replay, join_through: "bans_replays"
+    many_to_many :talents, AbaModel.Talent, join_through: "hero_talent"
   end
 
   def changeset(map, params \\ %{}) do
