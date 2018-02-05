@@ -1,1 +1,20 @@
 use `timestamps(type: :timestamptz)` for timestamps (https://www.amberbit.com/blog/2017/8/3/time-zones-in-postgresql-elixir-and-phoenix/)
+
+---
+
+create index(:table, [:col])
+create index(:table, [:col1, :col2])
+
+create unique_index(:table, [:col1])
+create unique_index(:table, [:col1, :col2])
+
+---
+
+on_update: :delete_all
+on_update: :restrict
+
+on_delete: :delete_all
+on_delete: :restrict
+
+, on_update: :restrict, on_delete: :restrict
+, on_update: :restrict, on_delete: :delete_all

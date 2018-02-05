@@ -24,7 +24,6 @@ defmodule AbaModel.Mixfile do
     [
       {:ecto, "~> 2.0"},
       {:ecto_enum, "~> 1.0"},
-      # {:plsm, "~> 2.2.0"},
       {:postgrex, "~> 0.13"}
     ]
   end
