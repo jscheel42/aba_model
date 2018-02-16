@@ -2,7 +2,7 @@ defmodule AbaModel.Hero do
   use Ecto.Schema
   import Ecto.Changeset
   
-  @params_cast [:attribute_id, :icon_url, :name, :short_name, :release_date, :role, :translations, :type]
+  @params_cast [:attribute_id, :name, :short_name, :release_date, :role, :type]
   @params_req [:name, :short_name]
 
   schema "heroes" do

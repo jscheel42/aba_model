@@ -22,7 +22,7 @@ defmodule AbaModel.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ecto, "~> 2.0"},
+      {:ecto, "~> 2.2.8"},
       {:ecto_enum, "~> 1.0"},
       {:postgrex, "~> 0.13"}
     ]
