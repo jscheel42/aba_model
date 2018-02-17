@@ -20,7 +20,7 @@ defmodule AbaModel.Hero do
 
     # many_to_many :players, AbaModel.Player, join_through: "heroes_players"
     # many_to_many :replays, AbaModel.Replay, join_through: "bans_replays"
-    many_to_many :talents, AbaModel.Talent, join_through: "hero_talent"
+    many_to_many :talents, AbaModel.Talent, join_through: AbaModel.HeroTalent
   end
 
   def changeset(map, params \\ %{}) do

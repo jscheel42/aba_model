@@ -161,30 +161,32 @@ defmodule AbaModel.Repo.Migrations.Init do
     create unique_index(:talents, [:name])
 
     ### Many to many tables ###
-    create table(:hero_talent, primary_key: false) do
+    # create table(:hero_talent, primary_key: false) do
+    create table(:hero_talent) do
       add :hero_id, references(:heroes, on_update: :restrict, on_delete: :restrict), null: false
       add :talent_id, references(:talents, on_update: :restrict, on_delete: :restrict), null: false
     end
     create unique_index(:hero_talent, [:hero_id, :talent_id], name: "hero_talent_hero_id_talent_id_index")
-    execute """
-      ALTER TABLE hero_talent ADD CONSTRAINT hero_talent_primary PRIMARY KEY USING INDEX hero_talent_hero_id_talent_id_index;
-    """
+    # execute """
+    #   ALTER TABLE hero_talent ADD CONSTRAINT hero_talent_primary PRIMARY KEY USING INDEX hero_talent_hero_id_talent_id_index;
+    # """
     create index(:hero_talent, [:talent_id])
 
     # execute """
     #   ALTER TABLE hero_talent ADD table_constraint_using_index PRIMARY KEY USING INDEX hero_talent_hero_id_talent_id_index;
     # """
     
-    create table(:player_talent, primary_key: false) do
+    # create table(:player_talent, primary_key: false) do
+    create table(:player_talent) do
       add :level, :smallint
 
       add :player_id, references(:players, on_update: :restrict, on_delete: :delete_all), null: false
       add :talent_id, references(:talents, on_update: :restrict, on_delete: :restrict), null: false
     end
     create unique_index(:player_talent, [:player_id, :level], name: "player_talent_player_id_level_index")
-    execute """
-      ALTER TABLE player_talent ADD CONSTRAINT player_talent_primary PRIMARY KEY USING INDEX player_talent_player_id_level_index;
-    """
+    # execute """
+    #   ALTER TABLE player_talent ADD CONSTRAINT player_talent_primary PRIMARY KEY USING INDEX player_talent_player_id_level_index;
+    # """
     create index(:player_talent, [:talent_id])
 
   end

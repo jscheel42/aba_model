@@ -5,6 +5,9 @@ defmodule AbaModel.PlayerTalent do
   @params_cast [:level]
   @params_req [:level]
 
+  # @primary_key false
+  # @primary_key {:player_talent_primary, :binary_id, autogenerate: true}
+
   schema "player_talent" do
     field :level, :integer
 
