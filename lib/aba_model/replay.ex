@@ -3,7 +3,7 @@ defmodule AbaModel.Replay do
   import Ecto.Changeset
   
   @params_cast [:filename, :fingerprint, :fingerprint_old, :game_type, :game_date, :game_length, :game_version, :processed, :region, :size]
-  @params_req [:filename, :fingerprint, :fingerprint_old, :processed, :size]
+  @params_req [:filename, :fingerprint, :processed, :size]
 
   schema "replays" do
     # field :api_replay_id, :integer # this is 'id' in the model at https://hotsapi.net/docs but we want to have this + default id field
