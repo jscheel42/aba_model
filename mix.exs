@@ -27,4 +27,21 @@ defmodule AbaModel.Mixfile do
       {:postgrex, "~> 0.13"}
     ]
   end
+
+  defp docs do
+    [
+      main: "AbaModel",
+      extras: ["README.md"],
+      output: ["docs"]
+    ]
+  end
+
+  defp package do
+    [
+      licenses: ["MIT"],
+      maintainers: ["Joshua Scheel"],
+      links: %{"Github": "https://github.com/jscheel42/aba_model",
+               "TravisCI": "https://travis-ci.org/jscheel42/aba_model"}
+    ]
+  end
 end
