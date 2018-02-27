@@ -26,6 +26,7 @@ defmodule AbaModel.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      { :ex_doc, "~> 0.18", only: :dev },
       {:ecto, "~> 2.2.8"},
       {:ecto_enum, "~> 1.0"},
       {:postgrex, "~> 0.13"}
