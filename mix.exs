@@ -6,6 +6,8 @@ defmodule AbaModel.Mixfile do
       app: :aba_model,
       version: "1.0.0",
       elixir: "~> 1.6",
+      name: "AbaModel",
+      description: "AbaModel is a database model based on the HOTS API (https://hotsapi.net/).",
       start_permanent: Mix.env == :prod,
       deps: deps(),
       docs: docs(),
