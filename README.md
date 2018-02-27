@@ -1,6 +1,9 @@
+[![Build Status](https://travis-ci.org/jscheel42/aba_model.svg?branch=master)](https://travis-ci.org/jscheel42/aba_model)
+
 # AbaModel
 
-[AbaModel Documentation]
+[Documentation]<br />
+[Package (hex.pm)]
 
 ## Installation
 
@@ -12,4 +15,5 @@ def deps do
 end
 ```
 
-[AbaModel Documentation]:https://hexdocs.pm/aba_model
+[Documentation]:https://hexdocs.pm/aba_model
+[Package (hex.pm)]:https://hex.pm/packages/aba_model
