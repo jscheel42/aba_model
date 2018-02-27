@@ -1,6 +1,6 @@
 # AbaModel
 
-**TODO: Add description**
+[AbaModel Documentation]
 
 ## Installation
 
@@ -12,3 +12,4 @@ def deps do
 end
 ```
 
+[AbaModel Documentation]:https://hexdocs.pm/aba_model
